@@ -1,4 +1,7 @@
-<h1>Homepage</h1>
+<div class="d-flex justify-content-between">
+  <h1>All products</h1>
+  <%= link_to 'Create product', new_product_path %>
+</div>
 
 <% @products.each do |product| %>
   <div>
@@ -10,4 +13,5 @@
   <div>
     <%= link_to 'More details', product_path(product) %>
   </div>
+  <hr>
 <% end %>
