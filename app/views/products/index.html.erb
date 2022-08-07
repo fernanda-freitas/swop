@@ -2,12 +2,12 @@
 
 <% @products.each do |product| %>
   <div>
-    <%= product.name %>
-    <%= product.category %>
-    <%= product.description %>
-    <%= product.price %>
-    <%= current_user.first_name %>
-    <%= current_user.last_name %>
-    <%= current_user.email %>
+    <p><%= product.name %></p>
+    <p><%= product.category %></p>
+    <p><%= product.description %></p>
+    <p><%= product.price %></p>
+  </div>
+  <div>
+    <%= link_to 'More details', product_path(product) %>
   </div>
 <% end %>

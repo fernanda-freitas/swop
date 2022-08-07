@@ -1,0 +1,9 @@
+<h1>Show page</h1>
+<div>
+  <p><%= @product.name %></p>
+  <p><%= @product.category %></p>
+  <p><%= @product.description %></p>
+  <p><%= @product.price %></p>
+  <hr>
+  <p>Owner: <%= current_user.first_name %> <%= current_user.last_name %></p>
+</div>
