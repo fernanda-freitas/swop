@@ -1,9 +1,13 @@
 <h1>Homepage</h1>
 
 <% @products.each do |product| %>
-  <%= product.name %>
-  <%= product.category %>
-  <%= product.description %>
-  <%= product.price %>
-  <%= current_user.email %>
+  <div>
+    <%= product.name %>
+    <%= product.category %>
+    <%= product.description %>
+    <%= product.price %>
+    <%= current_user.first_name %>
+    <%= current_user.last_name %>
+    <%= current_user.email %>
+  </div>
 <% end %>
