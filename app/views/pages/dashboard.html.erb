@@ -3,8 +3,20 @@
 <p><%= @user.email %></p>
 
 <div>
-  <h3>My products</h3>
+  <h3>Products I'm selling</h3>
   <% @user.products.each do |product| %>
     <p><%= product.name %></p>
+    <hr>
+  <% end %>
+</div>
+
+<div>
+  <h3>My Purchases</h3>
+  <% @user.purchases.each do |purchase| %>
+      <p><%= purchase.product.name %></p>
+      <p><%= purchase.product.price %></p>
+      <p><%= purchase.delivery_address %></p>
+      <p><%= purchase.message %></p>
+      <hr>
   <% end %>
 </div>
