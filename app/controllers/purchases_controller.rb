@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
   def new
     @product = Product.find(params[:product_id])
     @purchase = Purchase.new
+    authorize @purchase
   end
 
   def create
@@ -9,6 +10,7 @@ class PurchasesController < ApplicationController
     @product = Product.find(params[:product_id])
     @purchase.product = @product
     @purchase.user = current_user
+    authorize @purchase
     if @purchase.save
       redirect_to dashboard_path(current_user)
     else
