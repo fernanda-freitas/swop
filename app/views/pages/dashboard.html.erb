@@ -1,3 +1,10 @@
-<h1>Dashboard</h1>
+<h3>My informations</h3>
 <p><%= @user.first_name %> <%= @user.last_name %></p>
 <p><%= @user.email %></p>
+
+<div>
+  <h3>My products</h3>
+  <% @user.products.each do |product| %>
+    <p><%= product.name %></p>
+  <% end %>
+</div>
