@@ -8,7 +8,7 @@
 <div class="row">
   <% @products.each do |product| %>
     <div class="col-md-3">
-      <div class="card px-0" style="width: 18rem; height: 26rem;">
+      <div class="card px-0" style="width: 18rem; height: 28rem;">
         <%= cl_image_tag product.photo.key, crop: :fill %>
         <div class="card-body">
           <h5 class="card-title"><%= product.name %></h5>
