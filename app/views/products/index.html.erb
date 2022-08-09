@@ -1,26 +1,27 @@
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between mb-5">
   <h1>All products</h1>
   <div>
     <%= link_to 'Create product', new_product_path, class: 'btn btn-primary' %>
   </div>
 </div>
 
-<% @products.each do |product| %>
-  <div>
-    <p><%= product.name %></p>
-    <p><%= product.category %></p>
-    <p><%= product.description %></p>
-    <p><%= product.price %></p>
-    <p><%= product.user.first_name %> <%= product.user.last_name %></p>
-  </div>
-  <div class="d-flex">
-    <%= link_to 'More details', product_path(product), class:'btn btn-secondary me-2' %>
-    <% if policy(product).update? %>
-      <%= link_to 'Edit', edit_product_path(product), class:'btn btn-secondary me-2' %>
-    <% end %>
-    <% if policy(product).destroy? %>
-      <%= button_to 'Delete', product, method: :delete, data: { confirm: "Are you sure?" }, class:'btn btn-secondary' %>
-    <% end %>
-  </div>
-  <hr>
-<% end %>
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-3">
+      <div class="card px-0" style="width: 18rem; height: 26rem;">
+        <%= cl_image_tag product.photo.key, crop: :fill %>
+        <div class="card-body">
+          <h5 class="card-title"><%= product.name %></h5>
+          <p class="card-text"><%= product.description %></p>
+          <%= link_to 'More details', product_path(product), class:'card-link' %>
+          <% if policy(product).update? %>
+            <%= link_to 'Edit', edit_product_path(product), class:'card-link' %>
+          <% end %>
+          <% if policy(product).destroy? %>
+            <%= link_to 'Delete', product, method: :delete, data: { confirm: "Are you sure?" }, class:'card-link' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
