@@ -282,7 +282,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   capybara
-  cloudinary (~> 1.16.0)
+  cloudinary
   debug
   devise
   dotenv-rails
