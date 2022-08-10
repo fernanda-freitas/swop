@@ -6,12 +6,17 @@
     <p class="card-text"><%= @product.description %></p>
     <p class="card-text"><%= @product.price %></p>
     <p class="card-text">Seller: <%= @product.user.first_name %> <%= @product.user.last_name %></p>
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
       <% if @product.user != current_user %>
         <%= link_to 'Buy', new_product_purchase_path(@product), class:'btn btn-primary' %>
       <% else %>
         <%= link_to 'Edit', edit_product_path(@product), class:'card-link' %>
-        <%= link_to 'Delete', @product, method: :delete, data: { confirm: "Are you sure?" }, class:'card-link' %>
+        <%= button_to(
+          "Delete",
+          @product,
+          method: :delete,
+          class: 'btn btn-link'
+        ) %>
       <% end %>
     </div>
   </div>
