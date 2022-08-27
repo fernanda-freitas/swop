@@ -12,6 +12,7 @@
         <%= cl_image_tag product.photo.key, crop: :fill %>
         <div class="card-body">
           <h5 class="card-title"><%= product.name %></h5>
+          <p class="card-text"><%= product.status %></p>
           <p class="card-text"><%= product.description %></p>
           <div class="d-flex align-items-center">
             <%= link_to 'More details', product_path(product), class:'card-link' %>

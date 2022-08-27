@@ -4,4 +4,6 @@ class Product < ApplicationRecord
   has_one_attached :photo
 
   validates :name, :category, :description, :price, presence: :true
+
+  enum status: [:available, :sold]
 end
