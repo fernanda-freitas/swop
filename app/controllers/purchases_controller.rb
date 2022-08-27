@@ -12,6 +12,7 @@ class PurchasesController < ApplicationController
     @purchase.user = current_user
     authorize @purchase
     if @purchase.save
+      @product.update(status: 1)
       redirect_to dashboard_path(current_user)
     else
       render :new

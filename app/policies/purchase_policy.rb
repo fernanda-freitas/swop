@@ -6,7 +6,11 @@ class PurchasePolicy < ApplicationPolicy
     # end
   end
 
-  def create?
+  def new?
     true
+  end
+
+  def create?
+    record.product.status == 'available'
   end
 end
