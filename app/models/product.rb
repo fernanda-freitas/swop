@@ -1,4 +1,15 @@
 class Product < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_name_category_and_description,
+    against: {
+      name: 'A',
+      category: 'B',
+      description: 'C'
+    },
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   belongs_to :user
   has_many :purchases, dependent: :destroy
   has_one_attached :photo

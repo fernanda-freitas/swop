@@ -5,15 +5,22 @@
   </div>
 </div>
 
+<%= form_tag products_path, method: :get, class: 'd-flex mb-5' do %>
+  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a product"%>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="row">
   <% @products.each do |product| %>
     <div class="col-md-3">
-      <div class="card px-0" style="width: 18rem; height: 28rem;">
+      <div class="card px-0" style="width: 18rem; height: auto;">
         <%= cl_image_tag product.photo.key, crop: :fill %>
         <div class="card-body">
           <h5 class="card-title"><%= product.name %></h5>
-          <p class="card-text"><%= product.status %></p>
-          <p class="card-text"><%= product.description %></p>
+          <p class="card-title">Category: <%= product.category %></p>
+          <p class="card-text">Description: <%= product.description %></p>
+          <p class="card-text">Status: <%= product.status %></p>
+          <p class="card-text">Price: <%= product.price %>€</p>
           <div class="d-flex align-items-center">
             <%= link_to 'More details', product_path(product), class:'card-link' %>
             <% if policy(product).update? %>

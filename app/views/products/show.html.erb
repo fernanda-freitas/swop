@@ -1,10 +1,11 @@
 <div class="card px-0" style="width: 18rem;">
   <%= cl_image_tag @product.photo.key, crop: :fill %>
   <div class="card-body">
-    <h5 class="card-title"><%= @product.name %></h5>
-    <p class="card-text"><%= @product.category %></p>
-    <p class="card-text"><%= @product.description %></p>
-    <p class="card-text"><%= @product.price %></p>
+          <h5 class="card-title"><%= @product.name %></h5>
+          <p class="card-title">Category: <%= @product.category %></p>
+          <p class="card-text">Description: <%= @product.description %></p>
+          <p class="card-text">Status: <%= @product.status %></p>
+          <p class="card-text">Price: <%= @product.price %>€</p>
     <p class="card-text">Seller: <%= @product.user.first_name %> <%= @product.user.last_name %></p>
     <div class="d-flex align-items-center">
       <% if @product.user != current_user %>
