@@ -39,6 +39,9 @@ gem 'cloudinary'
 # PG Search
 gem 'pg_search', '~> 2.3.0'
 
+#Animate.css
+gem 'animate.css-rails', '~> 3.2.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
