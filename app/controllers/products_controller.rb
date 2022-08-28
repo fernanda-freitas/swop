@@ -3,11 +3,13 @@ class ProductsController < ApplicationController
 
   def index
     @products = policy_scope(Product)
+
     if params[:query].present?
       @products = Product.search_by_name_category_and_description(params[:query])
     else
       @products = Product.all
     end
+    @last_three_products = Product.last(3)
   end
 
   def show

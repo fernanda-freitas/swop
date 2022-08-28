@@ -10,8 +10,17 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
+<div>
+  <h3>Latest products added</h3>
+  <% @last_three_products.reverse.each do |product| %>
+    <p><%= product.name %></p>
+  <% end %>
+</div>
+
 <div class="row">
-  <% if @products.exists? %>
+  <% if @products.empty? %>
+    <p>Ooops, couldn't find anything.</p>
+  <% else %>
     <% @products.each do |product| %>
       <div class="col-md-3">
         <%= link_to product_path(product) do %>
@@ -41,7 +50,5 @@
         <% end %>
       </div>
     <% end %>
-  <% else %>
-    <p>Ooops, couldn't find anything.</p>
   <% end %>
 </div>
