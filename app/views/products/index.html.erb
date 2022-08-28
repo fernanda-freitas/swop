@@ -3,8 +3,8 @@
     <div class="row">
       <%= image_tag "banner-illustration.png", class: 'banner-illustration animate__animated animate__shakeY animate__infinite' %>
       <div class="col-md-7 offset-md-5">
-        <h1>swop. The smart choice</h1>
-        <h3>Revealbot automates your ad management routine so you can focus on reaching results, faster.</h3>
+        <h1 class="mb-2">swop. The smart choice</h1>
+        <h3 class="mb-4">Revealbot automates your ad management routine so you can focus on reaching results, faster.</h3>
         <%= link_to 'Start selling', new_product_path, class: 'btn btn-primary-custom-lg' %>
       </div>
     </div>
@@ -33,10 +33,14 @@
     </div>
   </div>
 
-  <%= form_tag products_path, method: :get, class: 'd-flex mb-5' do %>
-    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a product"%>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+  <div class="search-bar">
+    <%= form_tag products_path, method: :get, class: 'd-flex row' do %>
+      <div class="col-md-6 mx-auto d-flex">
+        <%= text_field_tag :query, params[:query], class: "form-control me-3", placeholder: "Find a product"%>
+        <%= submit_tag "Search", class: "btn btn-primary-custom-lg" %>
+      </div>
+    <% end %>
+  </div>
 
   <div class="row">
     <% if @products.empty? %>
@@ -45,29 +49,31 @@
       <% @products.sort.each do |product| %>
         <div class="col-md-3">
           <%= link_to product_path(product) do %>
-            <div class="card px-0" style="width: 18rem; height: auto;">
-              <%= cl_image_tag product.photos.first.key, crop: :fill, width: 100 %>
+
+            <div class="card-product">
+              <%= cl_image_tag product.photos.first.key, class: 'card-image' %>
               <div class="card-body">
-                <h5 class="card-title"><%= product.name %></h5>
-                <p class="card-title">Category: <%= product.category %></p>
-                <p class="card-text">Description: <%= product.description %></p>
-                <p class="card-text">Status: <%= product.status %></p>
-                <p class="card-text">Price: <%= product.price %>€</p>
-                <div class="d-flex align-items-center">
-                  <% if policy(product).update? %>
-                    <%= link_to 'Edit', edit_product_path(product), class:'card-link' %>
-                  <% end %>
-                  <% if policy(product).destroy? %>
-                    <%= button_to(
-                      "Delete",
-                      product,
-                      method: :delete,
-                      class: 'btn btn-link'
-                    ) %>
-                  <% end %>
+                <div class="d-flex justify-content-between">
+                  <span class="product-name"><%= product.name %></span>
+                  <span class="product-price"><%= product.price %>€</span>
                 </div>
+                <span class="product-description"><%= product.description %></span>
+              </div>
+              <div class="d-flex align-items-center">
+                <% if policy(product).update? %>
+                  <%= link_to 'Edit', edit_product_path(product), class:'card-link' %>
+                <% end %>
+                <% if policy(product).destroy? %>
+                  <%= button_to(
+                    "Delete",
+                    product,
+                    method: :delete,
+                    class: 'btn btn-link'
+                  ) %>
+                <% end %>
               </div>
             </div>
+
           <% end %>
         </div>
       <% end %>

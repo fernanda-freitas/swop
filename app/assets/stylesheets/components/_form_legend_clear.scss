@@ -8,3 +8,16 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-control {
+  background-color: white;
+  border-radius: 12px;
+  border: none;
+  -webkit-box-shadow: 5px 5px 19px 14px rgba(0,0,0,0.05);
+  box-shadow: 5px 5px 19px 14px rgba(0,0,0,0.05);
+}
+
+.search-bar {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}

@@ -2,6 +2,13 @@
   background-color: white;
   border-radius: 20px;
   padding: 1rem 1rem 0rem 1rem;
+  position: relative;
+  transition: all .3s;
+  bottom: 0rem;
+
+  &:hover {
+    bottom: .5rem;
+  }
 
   .card-image {
     display: flex;
@@ -26,6 +33,42 @@
       font-size: 1.5rem;
       font-weight: 800;
       color: $dark-gray;
+    }
+  }
+}
+
+.card-product {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem 1rem 0rem 1rem;
+
+  .card-image {
+    display: flex;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .card-body {
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    .product-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $dark-gray;
+    }
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $dark-gray;
+    }
+    .product-description {
+      font-size: 1rem;
+      font-weight: 400;
+      color: lighten($color: $dark-gray, $amount: 45);
     }
   }
 }
