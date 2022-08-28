@@ -1,0 +1,27 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: $dark-gray;
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.banner h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: $dark-gray;
+}
+
+.banner-illustration {
+  position: absolute;
+  height: 146%;
+  width: auto;
+  top: 2rem;
+  left: 0rem;
+  z-index: -10;
+}
