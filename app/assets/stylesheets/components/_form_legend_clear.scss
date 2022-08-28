@@ -29,3 +29,18 @@ legend ~ div.form-check:first-of-type {
   margin-top: 6rem;
   margin-bottom: 3rem;
 }
+
+.custom-card-lg {
+  .simple-form-field input {
+    height: 52px;
+    box-shadow: none;
+    border: 1px solid darken($color: $light-gray, $amount: 20);
+  }
+
+  .form-control.file {
+    height: 52px;
+    box-shadow: none;
+    border: transparent;
+    margin-left: -0.5rem;
+  }
+}

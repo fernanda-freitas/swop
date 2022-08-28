@@ -1,6 +1,10 @@
 .alert {
   position: fixed;
-  bottom: 16px;
+  top: 16px;
   right: 16px;
   z-index: 1000;
+  background-color: lighten($color: $green, $amount: 38);
+  color: darken($color: $green, $amount: 28);
+  border-radius: 8px;
+  border: none;
 }
