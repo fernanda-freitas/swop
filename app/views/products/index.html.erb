@@ -20,7 +20,7 @@
           <div class="col-md-4">
             <%= link_to product_path(product) do %>
               <div class="card-compact">
-                <%= cl_image_tag product.photos.first.key, class: 'card-image' %>
+                <%# <%= cl_image_tag product.photos.first.key, class: 'card-image' %>
                 <div class="card-body">
                   <span class="product-name"><%= product.name %></span>
                   <span class="product-price"><%= product.price %>€</span>
