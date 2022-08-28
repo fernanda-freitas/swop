@@ -20,7 +20,7 @@
             </div>
             <span class="product-price mt-auto"><%= @product.price %>€</span>
           </div>
-          <div>
+          <div class="mt-3">
             <p class="card-text"><%= @product.description %></p>
             <p><%= @product.status %></p>
             <p class="card-text">Seller: <%= @product.user.first_name %> <%= @product.user.last_name %></p>
@@ -28,7 +28,7 @@
           <div class="d-flex align-items-center">
             <% if @product.user != current_user %>
               <% if @product.status == 'available' %>
-                <%= link_to 'Buy', new_product_purchase_path(@product), class:'btn btn-primary' %>
+                <%= link_to 'Buy', new_product_purchase_path(@product), class:'btn btn-primary-custom' %>
               <% else %>
                 <p><%= @product.status %></p>
               <% end %>
