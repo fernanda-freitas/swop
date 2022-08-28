@@ -1,0 +1,21 @@
+.image-lg {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.tag-sm {
+  background-color: rgba(242,242,242,0.8);
+  color: #000000;
+  font-size: .75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+}

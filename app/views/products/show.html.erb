@@ -1,30 +1,49 @@
-<div class="card px-0" style="width: 18rem;">
-  <% @product.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, crop: :fill %>
-  <% end %>
-  <div class="card-body">
-          <h5 class="card-title"><%= @product.name %></h5>
-          <p class="card-title">Category: <%= @product.category %></p>
-          <p class="card-text">Description: <%= @product.description %></p>
-          <p class="card-text">Status: <%= @product.status %></p>
-          <p class="card-text">Price: <%= @product.price %>€</p>
-    <p class="card-text">Seller: <%= @product.user.first_name %> <%= @product.user.last_name %></p>
-    <div class="d-flex align-items-center">
-      <% if @product.user != current_user %>
-        <% if @product.status == 'available' %>
-          <%= link_to 'Buy', new_product_purchase_path(@product), class:'btn btn-primary' %>
-        <% else %>
-          <p><%= @product.status %></p>
-        <% end %>
-      <% else %>
-        <%= link_to 'Edit', edit_product_path(@product), class:'card-link' %>
-        <%= button_to(
-          "Delete",
-          @product,
-          method: :delete,
-          class: 'btn btn-link'
-        ) %>
-      <% end %>
+<div class="container mt-5">
+  <div class="custom-card">
+    <div class="row">
+      <div class="col-md-6">
+        <%= cl_image_tag @product.photos.first.key, class:'image-lg' %>
+        <div class="row mt-3">
+          <% @product.photos.drop(1).each do |photo| %>
+            <div class="col-md-3">
+              <%= cl_image_tag photo.key, class:'thumbnail' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <span class="tag-sm"><%= @product.category %></span>
+              <h3 class="mb-0 mt-2"><%= @product.name %></h3>
+            </div>
+            <span class="product-price mt-auto"><%= @product.price %>€</span>
+          </div>
+          <div>
+            <p class="card-text"><%= @product.description %></p>
+            <p><%= @product.status %></p>
+            <p class="card-text">Seller: <%= @product.user.first_name %> <%= @product.user.last_name %></p>
+          </div>
+          <div class="d-flex align-items-center">
+            <% if @product.user != current_user %>
+              <% if @product.status == 'available' %>
+                <%= link_to 'Buy', new_product_purchase_path(@product), class:'btn btn-primary' %>
+              <% else %>
+                <p><%= @product.status %></p>
+              <% end %>
+            <% else %>
+              <%= link_to 'Edit', edit_product_path(@product), class:'card-link' %>
+              <%= button_to(
+                "Delete",
+                @product,
+                method: :delete,
+                class: 'btn btn-link'
+              ) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
