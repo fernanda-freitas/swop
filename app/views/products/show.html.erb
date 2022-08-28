@@ -1,5 +1,7 @@
 <div class="card px-0" style="width: 18rem;">
-  <%= cl_image_tag @product.photo.key, crop: :fill %>
+  <% @product.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, crop: :fill %>
+  <% end %>
   <div class="card-body">
           <h5 class="card-title"><%= @product.name %></h5>
           <p class="card-title">Category: <%= @product.category %></p>

@@ -12,7 +12,7 @@ class Product < ApplicationRecord
 
   belongs_to :user
   has_many :purchases, dependent: :destroy
-  has_one_attached :photo
+  has_many_attached :photos
 
   validates :name, :category, :description, :price, presence: :true
 

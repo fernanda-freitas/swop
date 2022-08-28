@@ -21,11 +21,11 @@
   <% if @products.empty? %>
     <p>Ooops, couldn't find anything.</p>
   <% else %>
-    <% @products.each do |product| %>
+    <% @products.sort.each do |product| %>
       <div class="col-md-3">
         <%= link_to product_path(product) do %>
           <div class="card px-0" style="width: 18rem; height: auto;">
-            <%= cl_image_tag product.photo.key, crop: :fill, width: 100 %>
+            <%= cl_image_tag product.photos.first.key, crop: :fill, width: 100 %>
             <div class="card-body">
               <h5 class="card-title"><%= product.name %></h5>
               <p class="card-title">Category: <%= product.category %></p>
