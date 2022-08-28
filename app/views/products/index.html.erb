@@ -16,19 +16,7 @@
     <h3>Latest from the community</h3>
     <div class="mt-5">
       <div class="row">
-        <% @last_three_products.reverse.each do |product| %>
-          <div class="col-md-4">
-            <%= link_to product_path(product) do %>
-              <div class="card-compact">
-                <%# <%= cl_image_tag product.photos.first.key, class: 'card-image' %>
-                <div class="card-body">
-                  <span class="product-name"><%= product.name %></span>
-                  <span class="product-price"><%= product.price %>€</span>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+
       </div>
     </div>
   </div>
