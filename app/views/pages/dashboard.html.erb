@@ -1,4 +1,4 @@
-<div class="my-5">
+<div class="my-5 container">
   <h3>My informations</h3>
   <p><%= @user.first_name %> <%= @user.last_name %></p>
   <p><%= @user.email %></p>
@@ -11,7 +11,7 @@
       <% @user.products.each do |product| %>
           <div class="col-md-3">
             <div class="card px-0" style="width: 18rem; height: 28rem;">
-              <%= cl_image_tag product.photo.key, crop: :fill %>
+              <%= cl_image_tag product.photos.first.key, crop: :fill %>
               <div class="card-body">
                 <h5 class="card-title"><%= product.name %></h5>
                 <p class="card-text"><%= product.description %></p>

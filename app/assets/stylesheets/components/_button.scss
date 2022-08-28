@@ -4,9 +4,7 @@
   box-shadow: 0 2px 9px #431c0533;
   border-radius: 15px;
   height: 60px;
-  padding-top: 16px;
-  padding-right: 30px;
-  padding-left: 30px;
+  padding: 16px 30px;
   border: none;
   font-size: 18px;
   transition: background-color .2s ease;
@@ -21,16 +19,24 @@
   background-color: $orange;
   color: white;
   box-shadow: 0 2px 9px #431c0533;
-  max-height: 42px;
   padding: 10px 21px;
   border-radius: 12px;
   align-items: center;
-  display: flex;
+
   border: none;
   transition: background-color .2s ease;
 
   &:hover {
     background-color: darken($color: $orange, $amount: 8);
     color: white;
+  }
+}
+
+.dropdown-item {
+  padding: 10px 21px;
+  border-radius: 12px;
+
+  &:hover {
+    background-color: darken($color: $light-gray, $amount: 4);
   }
 }

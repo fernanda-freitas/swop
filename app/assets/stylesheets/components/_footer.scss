@@ -1,0 +1,22 @@
+footer {
+  background-color: $dark-gray;
+  margin-top: 5rem;
+
+  .footer-content {
+    text-align: center;
+    padding: 4.75rem;
+  }
+
+  img {
+    width: 130px;
+    height: auto;
+  }
+
+  .call-to-action-text {
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+}
